@@ -6,10 +6,17 @@ namespace chess
     {
         public static void Main(String[] args) 
         {
-            Position P;
-            Board B = new();
-
-            Screen.PrintBoard(B);
+            try
+            {
+                Board B = new();
+                B.SetPiece(new Tower(Color.White, B), new Position(7, 4));
+                B.SetPiece(new King(Color.White, B), new Position(0, 0));
+                Screen.PrintBoard(B);
+            }
+            catch (BoardException ErrorMessage)
+            {
+                Console.WriteLine(ErrorMessage.Message);
+            }
         }
     }
 }
