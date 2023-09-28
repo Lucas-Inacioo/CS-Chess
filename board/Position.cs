@@ -1,14 +1,15 @@
 using System.Reflection.Emit;
 using System.Text;
 
-namespace board {
-    class Position {
-        public int Line { get; set; }
-        public int Column { get; set; }
+namespace board 
+{
+    class Position 
+    {
+        public (int, int) Coordinates { get; set; }
 
-        public Position(int Line, int Column) {
-            this.Line = Line;
-            this.Column = Column;
+        public Position(int Line, int Column) 
+        {
+            this.Coordinates = (Line, Column);
         }
 
         public override string ToString()
@@ -16,9 +17,9 @@ namespace board {
             StringBuilder myStringBuilder = new();
             myStringBuilder.Append("Position: ");
             myStringBuilder.Append('(');
-            myStringBuilder.Append(Line);
+            myStringBuilder.Append(Coordinates.Item1);
             myStringBuilder.Append(',');
-            myStringBuilder.Append(Column);
+            myStringBuilder.Append(Coordinates.Item2);
             myStringBuilder.Append(')');
             return myStringBuilder.ToString();
         }
