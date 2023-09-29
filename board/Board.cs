@@ -38,6 +38,16 @@ namespace board
             WantedPiece.PiecePosition = WantedPosition;
         }
 
+        public Piece removePiece(Position WantedPosition)
+        {
+            Piece RemovedPiece = PieceAtPosition(WantedPosition);
+            if (RemovedPiece == null)
+                return null;
+            RemovedPiece.PiecePosition = null;
+            GamePieces[WantedPosition.Coordinates.Item1, WantedPosition.Coordinates.Item2] = null;
+            return RemovedPiece;
+        }
+
         public static bool ValidPosition(Position position)
         {
             if (

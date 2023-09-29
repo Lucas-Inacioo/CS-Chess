@@ -16,5 +16,10 @@ namespace board
             this.PiecePosition = null;
             this.NumberOfMoves = 0;
         }
+
+        public void IncrementNumberOfMoves()
+        {
+            NumberOfMoves++;
+        }
     }
 }

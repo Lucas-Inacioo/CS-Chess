@@ -1,4 +1,5 @@
-﻿using board;
+﻿using System.Text.RegularExpressions;
+using board;
 using chessGame;
 
 namespace chess 
@@ -9,11 +10,19 @@ namespace chess
         {
             try
             {
-                ChessPosition pos = new('C', 4);
-                Board B = new();
-                B.SetPiece(new Tower(Color.White, B), new Position(7, 4));
-                B.SetPiece(new King(Color.Black, B), new Position(0, 0));
-                Screen.PrintBoard(B);
+                ChessMatch match = new();
+                while (!match.MatchEnd)
+                {
+                    Console.Clear();
+                    Screen.PrintBoard(match.GameBoard);
+
+                    Console.Write("Initial Position: ");
+                    Position InitialPosition = Screen.ReadMove().ToPosition();
+                    Console.Write("Final Position: ");
+                    Position FinalPosition = Screen.ReadMove().ToPosition();
+
+                    match.MakeMove(InitialPosition, FinalPosition);
+                }
             }
             catch (BoardException ErrorMessage)
             {
