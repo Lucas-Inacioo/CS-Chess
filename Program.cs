@@ -9,13 +9,11 @@ namespace chess
         {
             try
             {
-                ChessPosition pos = new('c', 4);
+                ChessPosition pos = new('C', 4);
                 Board B = new();
                 B.SetPiece(new Tower(Color.White, B), new Position(7, 4));
-                B.SetPiece(new King(Color.White, B), new Position(0, 0));
+                B.SetPiece(new King(Color.Black, B), new Position(0, 0));
                 Screen.PrintBoard(B);
-                Console.WriteLine(pos);
-                Console.WriteLine(pos.ToPosition());
             }
             catch (BoardException ErrorMessage)
             {

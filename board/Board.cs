@@ -38,7 +38,7 @@ namespace board
             WantedPiece.PiecePosition = WantedPosition;
         }
 
-        public bool ValidPosition(Position position)
+        public static bool ValidPosition(Position position)
         {
             if (
                 position.Coordinates.Item1 < 0 ||
@@ -52,7 +52,7 @@ namespace board
             return true;
         }
 
-        public void ValidatePosition(Position position)
+        public static void ValidatePosition(Position position)
         {
             if (!ValidPosition(position))
             {

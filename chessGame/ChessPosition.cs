@@ -16,7 +16,7 @@ namespace chessGame
 
         public Position ToPosition()
         {
-            return new Position(8 - Line, Column - 'a');
+            return new Position(8 - Line, Char.ToLower(Column) - 'a');
         }
         public override string ToString()
         {
